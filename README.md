@@ -1,15 +1,15 @@
-# Entando Bundler
+# Villanova Bundler
 
 ## Purpose
-This application has the purpose of helping with operations regarding Entando Bundles.
+This application has the purpose of helping with operations regarding Villanova Bundles.
 
 It can be run as an interactive terminal application or as a single command for scripting.
 
 At this moment, these are the supported functions:
-- Converting an existing Bundle package from a Git repository or NPM registry (deprecated) into a Kubernetes Custom Resource (EntandoDeBundle).
+- Converting an existing Bundle package from a Git repository or NPM registry (deprecated) into a Kubernetes Custom Resource (VillanovaDeBundle).
 - Creating a Bundle package based on an existing environment.
   
-Please see the [Standard Demo Bundle](https://github.com/entando-samples/standard-demo-bundle) for a full example of a Bundle generated using this tool.
+Please see the [Standard Demo Bundle](https://github.com/villanova-samples/standard-demo-bundle) for a full example of a Bundle generated using this tool.
 
 ## Install
 To install this tool globally:
@@ -21,25 +21,25 @@ npm install -g ./
 
 This tool can be run both as an interactive terminal application ([inquirer.js](https://github.com/SBoudrias/Inquirer.js)) or as a single command for scripting purposes ([commander.js](https://github.com/tj/commander.js)).
 
-`$ entando-bundler` for interactive or `$ entando-bundler <command> <options>` for single command
+`$ villanova-bundler` for interactive or `$ villanova-bundler <command> <options>` for single command
 
 ## Generating Bundles from an existing environment:
 Create an `env.json` file with the configurations for the environment to extract the components:
 ```
 {
-    "coreBaseApi": "http://quickstart-sales-demo.lab.entando.org/entando-de-app",
-    "componentManagerApi": "http://quickstart-eci-sales-demo.lab.entando.org/digital-exchange",
-    "clientId": "entando-bundler",
+    "coreBaseApi": "http://quickstart-sales-demo.lab.villanova.ai.villanova-de-app",
+    "componentManagerApi": "http://quickstart-eci-sales-demo.lab.villanova.org/digital-exchange",
+    "clientId": "villanova-bundler",
     "clientSecret": "<insert_secret_here>"
 }
 ```
 
 Note:
-the clientId "entando-bundler" should be manually added to the keycloak of the source environment.
+the clientId "villanova-bundler" should be manually added to the keycloak of the source environment.
 
 ### Interactive command:
 ```
-$ entando-bundler
+$ villanova-bundler
 ? What do you want to do? Create a new bundle using components from an environment
 ? Please select an env.json file with the environment variables: env.json
 ? Which type of components do you want to add to the bundle? All components
@@ -60,7 +60,7 @@ Generating bundle...
 
 ### Single command:
 ```
-$ entando-bundler from-env \
+$ villanova-bundler from-env \
     --env env.json \
     --code standard-demo-bundle \
     --description "Standard Demo Bundle"
@@ -68,12 +68,12 @@ $ entando-bundler from-env \
 
 For more details, please refer to:
 ```
-entando-bundler from-env --help
+villanova-bundler from-env --help
 ```
 
-## Generate a Kubernetes Custom Resource (EntandoDeApp) from a git repository:
+## Generate a Kubernetes Custom Resource (VillanovaDeApp) from a git repository:
 ```
-$ entando-bundler from-git \
+$ villanova-bundler from-git \
 	--thumbnail-file <thumbnail_file_path> \
 	--name <bundle_code> \
 	--namespace <k8s_namespace> \
@@ -87,7 +87,7 @@ $ entando-bundler from-git \
 
 For more details, please refer to:
 ```
-entando-bundler from-git help
+villanova-bundler from-git help
 ```
 
 
@@ -99,8 +99,8 @@ Currently, tags are sorted using semver logic and are filtered out using  `/^v?\
 
 Thumbnail URLs (`--thumbnail-url` option) have to be surrounded with quotation marks.
 
-## (Deprecated) Generate a Kubernetes Custom Resource (EntandoDeApp) from an npm registry:
+## (Deprecated) Generate a Kubernetes Custom Resource (VillanovaDeApp) from an npm registry:
 ```
-entando-bundler from-npm --help
+villanova-bundler from-npm --help
 ```
 
